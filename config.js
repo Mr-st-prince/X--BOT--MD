@@ -14,7 +14,7 @@ if (fs.existsSync("config.env")) {
 	});
 }
 
-const DATABASE_URL = process.env.DATABASE_URL || "postgresql://bella:K6HulRhBCLx64FNGmPEuPg@xbotmdv3-8961.j77.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"; // Corrected SQLite format
+const DATABASE_URL = process.env.DATABASE_URL || "postgresql://prince_w867_user:qHG1G6POO533Ubsg3TkUxpHdHByaJzrJ@dpg-d121r1buibrs73eo03eg-a.oregon-postgres.render.com/prince_w867"; // Corrected SQLite format
 
 if (!DATABASE_URL.startsWith("sqlite://") && !DATABASE_URL.startsWith("postgres://") && !DATABASE_URL.startsWith("postgresql://")) {
 	throw new Error("Invalid DATABASE_URL format. Use 'sqlite://' or 'postgres://'");
@@ -22,7 +22,7 @@ if (!DATABASE_URL.startsWith("sqlite://") && !DATABASE_URL.startsWith("postgres:
 
 const DATABASE = DATABASE_URL.startsWith("sqlite://") ? new Sequelize(DATABASE_URL, {
 	dialect: "sqlite",
-	storage: DATABASE_URL.replace("sqlite://", ""),
+	storage: DATABASE_URL.replace("postgresql://prince_w867_user:qHG1G6POO533Ubsg3TkUxpHdHByaJzrJ@dpg-d121r1buibrs73eo03eg-a.oregon-postgres.render.com/prince_w867", ""),
 	logging: false
 }) : new Sequelize(DATABASE_URL, {
 	dialect: "postgres",
@@ -58,8 +58,8 @@ module.exports = {
 	HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || "",
 	KOYEB_API_KEY: process.env.KOYEB_API_KEY || "",
 	KOYEB_SERVICE_NAME: process.env.KOYEB_SERVICE_NAME || "",
-	RENDER_API_KEY: process.env.RENDER_API_KEY || "",
-	RENDER_APP_NAME: process.env.RENDER_APP_NAME || "",
+	RENDER_API_KEY: process.env.RENDER_API_KEY || "rnd_zEZ5JfhzzkOcBkGJE0HrdlwKGdL6",
+	RENDER_APP_NAME: process.env.RENDER_APP_NAME || "ponnu",
 	LANGUAGE: process.env.LANGUAGE || "english",
 	LOGS: toBool(process.env.LOGS || "false"),
 	MENU_TYPE: process.env.MENU_TYPE || "small", // Menu style: big, small, image, document, text, call, payment
